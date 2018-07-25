@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "423047313173",
+    "firebase_url": "https://agenda-sync-curso-alura.firebaseio.com",
+    "project_id": "agenda-sync-curso-alura",
+    "storage_bucket": "agenda-sync-curso-alura.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423047313173:android:3a5ad5bdb69d3b6a",
+        "android_client_info": {
+          "package_name": "br.com.alura.agenda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423047313173-kvqb5uqbnr9nt653lq6gv66sm000kpe5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.alura.agenda",
+            "certificate_hash": "f66125606831d98d80eb9091739988ae943dab78"
+          }
+        },
+        {
+          "client_id": "423047313173-cgcs2g0ul56cvcpeni5414a0loq5o1p0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjzXo6ilIYsU_5cUIgjbzfZYnNyGQWkjU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423047313173-cgcs2g0ul56cvcpeni5414a0loq5o1p0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423047313173:android:41342c863717b99a",
+        "android_client_info": {
+          "package_name": "tgsoftware.com.br.agendawebservice2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423047313173-r9frfiltuuacmc6j2g1f3793eqhqimt4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tgsoftware.com.br.agendawebservice2",
+            "certificate_hash": "f66125606831d98d80eb9091739988ae943dab78"
+          }
+        },
+        {
+          "client_id": "423047313173-cgcs2g0ul56cvcpeni5414a0loq5o1p0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjzXo6ilIYsU_5cUIgjbzfZYnNyGQWkjU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423047313173-cgcs2g0ul56cvcpeni5414a0loq5o1p0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
