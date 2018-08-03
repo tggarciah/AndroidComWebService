@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,6 +93,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
         insereIdSeNecessario(aluno);
         ContentValues dados = pegaDadosDoAluno(aluno);
         db.insert("Alunos", null, dados);
+        Log.i("AlunoDao", "inseriu o aluno");
     }
 
     private void insereIdSeNecessario(Aluno aluno) {
@@ -167,8 +169,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
     }
 
     public void sincroniza(List<Aluno> alunos) {
-        for (Aluno aluno :
-                alunos) {
+        for (Aluno aluno : alunos) {
             if (existe(aluno)) {
                 altera(aluno);
             } else {

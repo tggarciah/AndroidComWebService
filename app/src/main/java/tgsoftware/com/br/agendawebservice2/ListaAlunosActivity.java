@@ -18,6 +18,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -26,6 +30,7 @@ import retrofit2.Response;
 import tgsoftware.com.br.agendawebservice2.adapter.AlunosAdapter;
 import tgsoftware.com.br.agendawebservice2.dao.AlunoDAO;
 import tgsoftware.com.br.agendawebservice2.dto.AlunoSync;
+import tgsoftware.com.br.agendawebservice2.event.AtualizaListaAlunoEvent;
 import tgsoftware.com.br.agendawebservice2.modelo.Aluno;
 import tgsoftware.com.br.agendawebservice2.retrofit.RetrofitInicializador;
 import tgsoftware.com.br.agendawebservice2.task.EnviaAlunosTask;
@@ -34,6 +39,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     private ListView listaAlunos;
     private SwipeRefreshLayout swipe;
+    private EventBus eventBus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,13 +72,33 @@ public class ListaAlunosActivity extends AppCompatActivity {
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                buscaAlunoNoServidor();
+                //buscaAlunoNoServidor();
             }
         });
 
         registerForContextMenu(listaAlunos);
 
         buscaAlunoNoServidor();
+
+        eventBus = EventBus.getDefault();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        eventBus.register(this);
+        carregaLista();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        eventBus.unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void atualizaListaAlunoEvent(AtualizaListaAlunoEvent event) {
+        carregaLista();
     }
 
     private void carregaLista() {
@@ -88,13 +114,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
         AlunosAdapter adapter = new AlunosAdapter(this, alunos);
         listaAlunos.setAdapter(adapter);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        carregaLista();
     }
 
     private void buscaAlunoNoServidor() {
