@@ -25,7 +25,7 @@ public class AgendaMessagingService extends FirebaseMessagingService {
 
         if (remoteMessage.getData().size() > 0) {
             Map<String, String> data = remoteMessage.getData();
-
+            Log.i(TAG, data.toString());
             converteParaAluno(data);
         }
 
